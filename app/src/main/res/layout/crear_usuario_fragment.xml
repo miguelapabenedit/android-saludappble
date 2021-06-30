@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.example.saludappble.util.ConverterKt"/>
+        <variable
+            name="loginViewModel"
+            type="com.example.saludappble.ui.login.LoginViewModel" />
+        <variable
+            name="constantes"
+            type="com.example.saludappble.util.Constantes" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fillViewport="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <View
+                    android:id="@+id/viewNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvNombre"
+                    app:layout_constraintTop_toTopOf="@+id/tvNombre" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su Nombre"
+                    android:text="@={loginViewModel.nombre}"
+                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@id/tvNombre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <View
+                    android:id="@+id/viewApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvApellido"
+                    app:layout_constraintTop_toTopOf="@+id/tvApellido" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvApellido"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Apellido"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etNombre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etApellido"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su Apellido"
+                    android:text="@={loginViewModel.apellido}"
+                    android:inputType="textPersonName"
+                    app:layout_constraintTop_toBottomOf="@id/tvApellido"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <View
+                    android:id="@+id/viewDni"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDni"
+                    app:layout_constraintTop_toTopOf="@+id/tvDni" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDni"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DNI"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etApellido"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etDni"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese numero de documento"
+                    android:text="@={ConverterKt.toString(loginViewModel.dni)}"
+                    android:inputType="number"
+                    android:maxLength="8"
+                    app:layout_constraintTop_toBottomOf="@id/tvDni"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <View
+                    android:id="@+id/viewSexo"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSexo"
+                    app:layout_constraintTop_toTopOf="@+id/tvSexo" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvSexo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sexo"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etDni"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.button.MaterialButtonToggleGroup
+                    android:id="@+id/tgSexo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:checkedButton="@id/btnMasculino"
+                    app:singleSelection="true"
+                    app:layout_constraintTop_toBottomOf="@id/tvSexo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <Button
+                        android:id="@+id/btnMasculino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="M"
+                        android:tag="M"
+                        android:onClick="@{(v)->loginViewModel.onSwSexo(v)}"/>
+                    <Button
+                        android:id="@+id/btnFemenino"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="F"
+                        android:tag="F"
+                        android:onClick="@{(v)->loginViewModel.onSwSexo(v)}"/>
+                </com.google.android.material.button.MaterialButtonToggleGroup>
+                <View
+                    android:id="@+id/viewFechaNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvFechaNacimiento"
+                    app:layout_constraintTop_toTopOf="@+id/tvFechaNacimiento" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvFechaNacimiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de Nacimiento"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/tgSexo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etFechaNacimiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="DD/MM/AAAA"
+                    android:text="@={loginViewModel.fechaNacimiento}"
+                    android:gravity="center|start"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:onClick="@{()->loginViewModel.onClickDate()}"
+                    app:layout_constraintTop_toBottomOf="@id/tvFechaNacimiento"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <View
+                    android:id="@+id/viewLocalidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvLocalidad"
+                    app:layout_constraintTop_toTopOf="@+id/tvLocalidad" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvLocalidad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Localidad"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etFechaNacimiento"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLocalidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="La Plata, Buenos Aires"
+                    android:text="@={loginViewModel.localidad}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/tvLocalidad"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <View
+                    android:id="@+id/viewTratamiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTratamiento"
+                    app:layout_constraintTop_toTopOf="@+id/tvTratamiento" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTratamiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tratamiento"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etLocalidad"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <RadioGroup
+                    android:id="@+id/rgTratamiento"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@id/rbAnorexia"
+                    app:layout_constraintTop_toBottomOf="@id/tvTratamiento"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbAnorexia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Anorexia"
+                        android:tag="anorexia"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:checked="@{loginViewModel.tratamiento == constantes.Companion.TRATAMIENTO_ANOREXIA}"
+                        android:onClick="@{(v)->loginViewModel.onRGTratamiento(v)}"/>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbBulimia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bulimia"
+                        android:tag="bulimia"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:checked="@{loginViewModel.tratamiento == constantes.Companion.TRATAMIENTO_BULIMIA}"
+                        android:onClick="@{(v)->loginViewModel.onRGTratamiento(v)}"/>
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/rbObesidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Obesidad"
+                        android:tag="obesidad"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:checked="@{loginViewModel.tratamiento == constantes.Companion.TRATAMIENTO_OBESIDAD}"
+                        android:onClick="@{(v)->loginViewModel.onRGTratamiento(v)}"/>
+                </RadioGroup>
+                <View
+                    android:id="@+id/viewCrearUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvCrearUsuario"
+                    app:layout_constraintTop_toTopOf="@+id/tvCrearUsuario" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCrearUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Usuario"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/rgTratamiento"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCrearUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Usuario"
+                    android:text="@={loginViewModel.usuarioCrear}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/tvCrearUsuario"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <View
+                    android:id="@+id/viewCrearPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvCrearPassword"
+                    app:layout_constraintTop_toTopOf="@+id/tvCrearPassword" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCrearPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contraseña"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etCrearUsuario"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCrearPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Constraseña"
+                    android:text="@={loginViewModel.passwordCrear}"
+                    android:inputType="textPassword"
+                    app:layout_constraintTop_toBottomOf="@id/tvCrearPassword"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardarUsuario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar"
+                    app:layout_constraintTop_toBottomOf="@+id/etCrearPassword"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:onClick="@{()-> loginViewModel.onBtnGuardar()}"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

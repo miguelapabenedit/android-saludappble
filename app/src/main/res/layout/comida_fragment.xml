@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.example.saludappble.ui.main.MainViewModel" />
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <View
+                    android:id="@+id/viewComidaPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvComidaPrincipal"
+                    app:layout_constraintTop_toTopOf="@+id/tvComidaPrincipal" />
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvComidaPrincipal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comida principal"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etComidaPrincipal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su comida principal"
+                    android:text="@={mainViewModel.comidaPrincipal}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/viewComidaPrincipal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                    android:id="@+id/viewComidaSecundaria"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvComidaSecundaria"
+                    app:layout_constraintTop_toTopOf="@+id/tvComidaSecundaria" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvComidaSecundaria"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Comida Secundaria"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@+id/etComidaPrincipal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etComidaSecundaria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su comida secundaria"
+                    android:text="@={mainViewModel.comidaSecundaria}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/tvComidaSecundaria"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                    android:id="@+id/viewBebida"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvBebida"
+                    app:layout_constraintTop_toTopOf="@+id/tvBebida" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvBebida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bebida"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/etComidaSecundaria"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etBebida"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su bebida"
+                    android:text="@={mainViewModel.bebida}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/tvBebida"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <View
+                    android:id="@+id/viewPostre"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPostre"
+                    app:layout_constraintTop_toTopOf="@+id/tvPostre" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvPostre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Postre"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/etBebida"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swPostre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvPostre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:checked="@={mainViewModel.tuvoPostre}"
+                    android:onClick="@{() -> mainViewModel.onSwitchPostre()}"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPostre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese su postre"
+                    android:text="@={mainViewModel.postre}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/swPostre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    showView="@{mainViewModel.tuvoPostre}"/>
+
+                <View
+                    android:id="@+id/viewTentacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTentacion"
+                    app:layout_constraintTop_toTopOf="@+id/tvTentacion" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvTentacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tentación"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/etPostre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swTentacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvTentacion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:checked="@={mainViewModel.tuvoTentacion}"
+                    android:onClick="@{() -> mainViewModel.onSwitchTentacion()}"/>
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTentacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese la comida con la que sufrio tentacion"
+                    android:text="@={mainViewModel.tentacion}"
+                    android:inputType="text"
+                    app:layout_constraintTop_toBottomOf="@id/swTentacion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    showView="@{mainViewModel.tuvoTentacion}"/>
+
+                <View
+                    android:id="@+id/viewHambre"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:background="@color/design_default_color_background"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvHambre"
+                    app:layout_constraintTop_toTopOf="@+id/tvHambre" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvHambre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Se quedo con hambre?"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/etTentacion"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/swHambre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tvHambre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:checked="@={mainViewModel.tuvoHambre}"
+                    android:onClick="@{() -> mainViewModel.onSwitchHambre()}"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar"
+                    app:layout_constraintTop_toBottomOf="@id/swHambre"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:onClick="@{()-> mainViewModel.onBtnGuardar()}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
